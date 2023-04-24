@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yeeter Bounty List</title>
+    <style type="text/css">
+      body {
+        background-color: rgba(5, 10, 27, 1);
+
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .bg {
+        background-image: url(https://daohaus.mypinata.cloud/ipfs/QmVN9y2xBgrwmWChor42PLMvp32UkV1zZJGhbqvd8Ytqhk);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 1em;
+        background: linear-gradient(
+          to bottom right,
+          #c6e48b,
+          rgba(5, 10, 27, 0.8)
+        );
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background: linear-gradient(
+          to bottom right,
+          #c6e48b,
+          rgba(5, 10, 27, 0.8)
+        );
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+        padding: 20px;
+        position: relative;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+
+        transform: rotate(45deg);
+      }
+
+      h2 {
+        font-size: 1.2em;
+        margin-top: 0;
+        color: rgba(5, 10, 27, 1);
+      }
+
+      p {
+        margin: 10px 0;
+        color: rgba(5, 10, 27, 1);
+      }
+
+      .status {
+        color: rgba(5, 10, 27, 1);
+        font-weight: bold;
+        font-size: 1.8em;
+      }
+
+      li.status-discovery::before {
+        background-color: #2ecc71;
+      }
+
+      li.status-help-wanted::before {
+        background-color: #c59419;
+      }
+
+      li.status-live::before {
+        background-color: #3498db;
+      }
+
+      li.status-funded::before {
+        background-color: #e3747e;
+      }
+
+      .link-list {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin-bottom: 1em;
+      }
+      .link-list a {
+        margin-right: 1em;
+      }
+
+      .bounty-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .bounty-item .bounty-info {
+        flex-grow: 1;
+      }
+
+      .bounty-item .progress-chart {
+        width: 100px;
+        height: 100px;
+        margin-left: 20px;
+      }
+
+      .matched-ribbon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background-color: #6dd5ed;
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 4px 10px;
+        transform: rotate(45deg);
+      }
+
+      .link-button {
+        background: linear-gradient(to bottom right, #a7cc7f, #379f68);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .link-button:hover {
+        background: linear-gradient(to bottom right, #c6e48b, #7bc96f);
+      }
+
+      header img {
+        height: 80px;
+        width: 80px;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+      <header>
+        <img
+          src="https://yeet.daohaus.club/static/media/y33t_logo.67335638.svg"
+          alt="Yeet Logo"
+        />
+        <h1>Yeeter Project List</h1>
+      </header>
+      <ul id="bounty-list"></ul>
+      <script type="text/javascript">
+        const bounties = [
+          {
+            title: "PBY5: Merman 🧜‍♂️",
+            description: "Merkle tree drops for DAOs. Merkle + Shaman = Merman",
+            fundingTarget: 1,
+            fundingUnit: "ETH",
+            teamLead: "YKW",
+            funding: 0,
+            matched: false,
+            discussion: "",
+            spec: "",
+            status: "Help Wanted",
+          },
+          {
+            title: "PBY4: Rite of Moloch",
+            description: "HR for DAOs",
+            fundingTarget: 1,
+            fundingUnit: "ETH",
+            teamLead: "benedictvs",
+            funding: 0,
+            matched: false,
+            discussion: "",
+            spec: "",
+            status: "Discovery",
+          },
+          {
+            title: "PBY3: CookieJar",
+            description: "Slush Fund for DAOs",
+            fundingTarget: 2,
+            fundingUnit: "ETH",
+            teamLead: "Dekan",
+            funding: 0,
+            matched: false,
+            discussion: "",
+            spec: "",
+            status: "Live",
+          },
+          {
+            title: "PBY2: Yeeter onboarder",
+            description:
+              "Work with LunarDAO to build a usecase around yeeter onboarding",
+            fundingTarget: 6.9,
+            fundingUnit: "ETH",
+            teamLead: "Dekan",
+            funding: 1,
+            matched: false,
+            discussion: "",
+            spec: "",
+            status: "Live",
+          },
+          {
+            title: "PBY1: Custom Loot Tokens",
+            description:
+              "Add support for custom loot tokens with a higher order summoner and demo updates",
+            fundingTarget: 1.5,
+            fundingUnit: "ETH",
+            teamLead: "Dekan",
+            funding: 1,
+            matched: true,
+            discussion: "https://discord.gg/2YHSAey",
+            spec: "https://hackmd.io/@dekan/loot",
+            status: "Funded",
+          },
+        ];
+
+        const buttonText = (status) => {
+          return status != "Discovery" && status != "Funded"
+            ? "Fund"
+            : "See More";
+        };
+
+        const list = document.querySelector("ul");
+
+        for (let i = 0; i < bounties.length; i++) {
+          const bounty = bounties[i];
+          const bt = buttonText(bounty.status);
+
+          const listItem = document.createElement("li");
+          listItem.classList.add(
+            `status-${bounty.status.toLowerCase().replace(" ", "-")}`
+          );
+          listItem.classList.add(`bounty-item`);
+          listItem.innerHTML = `
+        <div class="bounty-info">
+    <h2>${bounty.title}</h2>
+    <p>${bounty.description}</p>
+    <p>Funding Target: ${bounty.fundingTarget} ${bounty.fundingUnit}</p>
+    <p>Team Lead: ${bounty.teamLead}</p>
+    <p class="status">Status: ${bounty.status}</p>
+    <div class="link-list">
+      ${
+        bounty.discussion
+          ? `<a href="${bounty.discussion}" target="_blank">💬</a>`
+          : ""
+      }
+      ${bounty.spec ? `<a href="${bounty.spec}" target="_blank">🗒️</a>` : ""}
+      </div>
+        <a href="https://www.externalurl.com" target="_blank" class="link-button">
+        ${bt}</a>
+        ${bounty.matched ? `<span class="matched-ribbon">Matched</span>` : ""}
+        </div>
+        <div class="progress-chart">
+          </div>
+  `;
+
+          list.appendChild(listItem);
+
+          const progressChart = listItem.querySelector(".progress-chart");
+          const radius = 20;
+          const circumference = 2 * Math.PI * radius;
+          const fundingPercentage = Math.min(
+            100,
+            Math.round((bounty.funding / bounty.fundingTarget) * 100)
+          );
+          const offset =
+            circumference - (fundingPercentage / 100) * circumference;
+          progressChart.innerHTML =
+            bounty.status.toLowerCase().replace(" ", "-") !== "discovery"
+              ? `
+    <svg viewBox="0 0 50 50">
+      <circle cx="25" cy="25" r="${radius}" fill="none" stroke="#ddd" stroke-width="4"></circle>
+      <circle cx="25" cy="25" r="${radius}" fill="none" stroke="#379f68" stroke-width="4" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"></circle>
+      <text x="50%" y="55%" text-anchor="middle" font-size="12">${fundingPercentage}%</text>
+    </svg>
+  `
+              : "";
+        }
+
+      </script>
+    </div>
+  </body>
+</html>
