@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yeeter Bounty List</title>
+    <title>Yeeter List</title>
     <style type="text/css">
       body {
-        background-color: rgba(5, 10, 27, 1);
+        background-color: #d20dec;
 
         font-family: Arial, sans-serif;
         padding: 20px;
@@ -26,8 +26,8 @@
         padding: 1em;
         background: linear-gradient(
           to bottom right,
-          #c6e48b,
-          rgba(5, 10, 27, 0.8)
+          #23a9bb,
+          rgba(5, 10, 27, 0.2)
         );
       }
 
@@ -43,7 +43,7 @@
       li {
         background: linear-gradient(
           to bottom right,
-          #c6e48b,
+          #ca3958,
           rgba(5, 10, 27, 0.8)
         );
         border-radius: 10px;
@@ -165,7 +165,7 @@
 
       footer {
         margin-top: 50px;
-        background-color: #333;
+        background-color: #126599;
         color: #fff;
         text-align: center;
         padding: 20px;
@@ -196,6 +196,11 @@
         margin-bottom: 5px;
         padding: 5px 10px;
       }
+
+      .emoji {
+  font-size: 6rem; /* Adjust the font size to make the emoji larger or smaller */
+  margin-right: 1rem;
+}
     </style>
   </head>
   <body>
@@ -205,7 +210,7 @@
           src="https://yeet.daohaus.club/static/media/y33t_logo.67335638.svg"
           alt="Yeet Logo"
         />
-        <h1>Yeeter Project List</h1>
+        <h1>Meme Yeeter</h1>
       </header>
       <ul id="bounty-list"></ul>
       <footer>
@@ -222,12 +227,15 @@
         const bounties = [
           {
             title: "PBY5: Merman 🧜‍♂️",
+            meme: "🧜‍♂️",
             description: "Merkle tree drops for DAOs. Merkle + Shaman = Merman",
             fundingTarget: 1,
             fundingUnit: "ETH",
             teamLead: "YKW",
             funding: 0,
             matched: false,
+            yeeterUrl:"",
+            infoUrl:"",
             tags: ["action", "project","banana"],
             netowrk: "optimism",
             discussion: "",
@@ -236,12 +244,15 @@
           },
           {
             title: "PBY4: Rite of Moloch",
+            meme: "👹",
             description: "HR for DAOs",
             fundingTarget: 1,
             fundingUnit: "ETH",
             teamLead: "benedictvs",
             funding: 0,
             matched: false,
+            yeeterUrl:"",
+            infoUrl:"",
             tags: ["action", "project","banana"],
             netowrk: "optimism",
             discussion: "",
@@ -250,12 +261,15 @@
           },
           {
             title: "PBY3: CookieJar",
+            meme: "🍪",
             description: "Slush Fund for DAOs",
             fundingTarget: 2,
             fundingUnit: "ETH",
             teamLead: "Dekan",
             funding: 0,
             matched: false,
+            yeeterUrl:"",
+            infoUrl:"",
             tags: ["action", "project","banana"],
             netowrk: "optimism",
             discussion: "",
@@ -264,6 +278,7 @@
           },
           {
             title: "PBY2: Yeeter onboarder",
+            meme: "👅",
             description:
               "Work with LunarDAO to build a usecase around yeeter onboarding",
             fundingTarget: 6.9,
@@ -271,6 +286,8 @@
             teamLead: "Dekan",
             funding: 0,
             matched: false,
+            yeeterUrl:"",
+            infoUrl:"",
             tags: ["action", "project","banana"],
             netowrk: "optimism",
             discussion: "",
@@ -279,6 +296,7 @@
           },
           {
             title: "PBY1: Custom Loot Tokens",
+            meme: "💰",
             description:
               "Add support for custom loot tokens with a higher order summoner and demo updates",
             fundingTarget: 1.5,
@@ -286,6 +304,8 @@
             teamLead: "Dekan",
             funding: 1,
             matched: true,
+            yeeterUrl:"",
+            infoUrl:"",
             tags: ["action", "project","banana"],
             netowrk: "optimism",
             discussion: "https://discord.gg/2YHSAey",
@@ -312,6 +332,7 @@
           );
           listItem.classList.add(`bounty-item`);
           listItem.innerHTML = `
+          <span class="emoji">${bounty.meme}</span>
   <div class="bounty-info">
     <h2>${bounty.title}</h2>
     <div class="bounty-tags"></div>
@@ -353,7 +374,7 @@
               ? `
     <svg viewBox="0 0 50 50">
       <circle cx="25" cy="25" r="${radius}" fill="none" stroke="#ddd" stroke-width="4"></circle>
-      <circle cx="25" cy="25" r="${radius}" fill="none" stroke="#379f68" stroke-width="4" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"></circle>
+      <circle cx="25" cy="25" r="${radius}" fill="none" stroke="#d20dec" stroke-width="4" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"></circle>
       <text x="50%" y="55%" text-anchor="middle" font-size="12">${fundingPercentage}%</text>
     </svg>
   `
