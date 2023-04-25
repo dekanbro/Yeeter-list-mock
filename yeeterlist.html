@@ -198,9 +198,43 @@
       }
 
       .emoji {
-  font-size: 6rem; /* Adjust the font size to make the emoji larger or smaller */
-  margin-right: 1rem;
-}
+        font-size: 6rem; /* Adjust the font size to make the emoji larger or smaller */
+        margin-right: 1rem;
+      }
+
+      .create {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .create-button {
+        border-radius: 50%;
+        border: none;
+        padding: 2rem;
+        background-color: #f90;
+        color: #fff;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        animation: spin 3s linear infinite;
+      }
+
+      .create-button:hover {
+        transform: scale(1.1);
+      }
+
+      .rocket {
+        font-size: 2rem;
+        margin-left: 0.5rem;
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </head>
   <body>
@@ -213,6 +247,12 @@
         <h1>Meme Yeeter</h1>
       </header>
       <ul id="bounty-list"></ul>
+      <section class="create">
+        <button class="create-button">
+          <span>CREATE</span>
+          <span class="rocket">🚀</span>
+        </button>
+      </section>
       <footer>
         <p>
           Subscribe to our Mirror for the latest updates and new opertunities.
@@ -234,9 +274,9 @@
             teamLead: "YKW",
             funding: 0,
             matched: false,
-            yeeterUrl:"",
-            infoUrl:"",
-            tags: ["action", "project","banana"],
+            yeeterUrl: "",
+            infoUrl: "",
+            tags: ["action", "project", "banana"],
             netowrk: "optimism",
             discussion: "",
             spec: "",
@@ -251,9 +291,9 @@
             teamLead: "benedictvs",
             funding: 0,
             matched: false,
-            yeeterUrl:"",
-            infoUrl:"",
-            tags: ["action", "project","banana"],
+            yeeterUrl: "",
+            infoUrl: "",
+            tags: ["action", "project", "banana"],
             netowrk: "optimism",
             discussion: "",
             spec: "",
@@ -268,9 +308,9 @@
             teamLead: "Dekan",
             funding: 0,
             matched: false,
-            yeeterUrl:"",
-            infoUrl:"",
-            tags: ["action", "project","banana"],
+            yeeterUrl: "",
+            infoUrl: "",
+            tags: ["action", "project", "banana"],
             netowrk: "optimism",
             discussion: "",
             spec: "",
@@ -286,9 +326,9 @@
             teamLead: "Dekan",
             funding: 0,
             matched: false,
-            yeeterUrl:"",
-            infoUrl:"",
-            tags: ["action", "project","banana"],
+            yeeterUrl: "",
+            infoUrl: "",
+            tags: ["action", "project", "banana"],
             netowrk: "optimism",
             discussion: "",
             spec: "",
@@ -304,9 +344,9 @@
             teamLead: "Dekan",
             funding: 1,
             matched: true,
-            yeeterUrl:"",
-            infoUrl:"",
-            tags: ["action", "project","banana"],
+            yeeterUrl: "",
+            infoUrl: "",
+            tags: ["action", "project", "banana"],
             netowrk: "optimism",
             discussion: "https://discord.gg/2YHSAey",
             spec: "https://hackmd.io/@dekan/loot",
@@ -356,8 +396,6 @@
   <div class="progress-chart"></div>
   `;
 
- 
-
           list.appendChild(listItem);
 
           const progressChart = listItem.querySelector(".progress-chart");
@@ -380,17 +418,15 @@
   `
               : "";
 
-        const bountyTagsContainer = listItem.querySelector(".bounty-tags");
-        const tags = bounty.tags;
+          const bountyTagsContainer = listItem.querySelector(".bounty-tags");
+          const tags = bounty.tags;
 
-        tags.forEach((tag) => {
-              const badge = document.createElement("div");
-              badge.classList.add("bounty-tag");
-              badge.textContent = tag.trim();
-              bountyTagsContainer.appendChild(badge);
-
+          tags.forEach((tag) => {
+            const badge = document.createElement("div");
+            badge.classList.add("bounty-tag");
+            badge.textContent = tag.trim();
+            bountyTagsContainer.appendChild(badge);
           });
-
         }
       </script>
     </div>
